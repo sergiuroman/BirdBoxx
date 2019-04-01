@@ -22,4 +22,24 @@ public class AppTest
     public void test_addStudent(){
         assertTrue(true);
     }
+
+    @Test
+    public void addStudentWithInvalidEmail(){
+        assertTrue(true);
+
+    }
+
+    @Test
+    public void addStudentWithInvalidGroup(){
+        assertTrue(false);
+
+    }
+
+    @Test
+    public void addStudentWithInvalidID(){
+        assertTrue(true);
+    }
+
+
+
 }
