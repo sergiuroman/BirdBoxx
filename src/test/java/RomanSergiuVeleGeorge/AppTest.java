@@ -42,7 +42,7 @@ public class AppTest {
             Student std = new Student("78", "Sergiu", 936, "e-mail", "Prof X");
             srv.add(std);
             assertTrue(false);
-        } catch (Error e) {
+        } catch (Exception e) {
             assertTrue(true);
         }    }
 
@@ -54,7 +54,7 @@ public class AppTest {
             Student std = new Student("78", "Sergiu", 936, null, "Prof X");
             srv.add(std);
             assertTrue(false);
-        } catch (Error e) {
+        } catch (Exception e) {
             assertTrue(true);
         }       }
 
@@ -66,7 +66,7 @@ public class AppTest {
             Student std = new Student("78", "Sergiu", 189, "jojo@ghdd.com", "Prof X");
             srv.add(std);
             assertTrue(false);
-        } catch (Error e) {
+        } catch (Exception e) {
             assertTrue(true);
         }      }
 
@@ -78,7 +78,7 @@ public class AppTest {
             Student std = new Student("78", null, 933, "jojo@ghdd.com", "Prof X");
             srv.add(std);
             assertTrue(false);
-        } catch (Error e) {
+        } catch (Exception e) {
             assertTrue(true);
         }        }
 
@@ -90,7 +90,7 @@ public class AppTest {
             Student std = new Student("78", "Sergiu", 933, "jojo@ghdd.com", null);
             srv.add(std);
             assertTrue(false);
-        } catch (Error e) {
+        } catch (Exception e) {
             assertTrue(true);
         }
     }
@@ -103,7 +103,7 @@ public class AppTest {
             Student std = new Student("78", "Sergiu", 935, "jojo@ghdd.com", "Prof 66X");
             srv.add(std);
             assertTrue(false);
-        } catch (Error e) {
+        } catch (Exception e) {
             assertTrue(true);
         }
     }
@@ -116,7 +116,7 @@ public class AppTest {
             Student std = new Student("7j8", "Sergiu", 934, "jojo@ghdd.com", "Prof X");
             srv.add(std);
             assertTrue(false);
-        } catch (Error e) {
+        } catch (Exception e) {
             assertTrue(true);
         }
     }

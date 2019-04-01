@@ -6,6 +6,12 @@
         <mail>RRR@RRR.COM</mail>
         <profesor>jj</profesor>
     </Student>
+    <Student idStudent="78">
+        <nume>Sergiu</nume>
+        <grupa>936</grupa>
+        <mail>sergiu97@yahoo.ro</mail>
+        <profesor>Prof X</profesor>
+    </Student>
     <Student idStudent="2">
         <nume>Gorea Andra</nume>
         <grupa>921</grupa>
