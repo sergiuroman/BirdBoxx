@@ -26,13 +26,31 @@ public class AppTest
     @Test
     public void addStudentWithInvalidEmail(){
         assertTrue(true);
+    }
 
+    @Test
+    public void addStudentWithNullEmail(){
+        assertTrue(true);
     }
 
     @Test
     public void addStudentWithInvalidGroup(){
         assertTrue(false);
+    }
 
+    @Test
+    public void addStudentWithNullName(){
+        assertTrue(false);
+    }
+
+    @Test
+    public void addStudentWithNullProfessor(){
+        assertTrue(false);
+    }
+
+    @Test
+    public void addStudentWithInvalidProfessor(){
+        assertTrue(false);
     }
 
     @Test
