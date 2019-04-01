@@ -27,6 +27,15 @@ public class UI {
         this.serv=serv;
         this.sv=sv;
     }
+
+    public void addAssignment(int nr, String desc, int sapt, int d){
+        try {
+            Teme tema = new Teme(nr, desc, sapt, d);
+            serv.add(tema);
+        }catch(ValidationException ex){
+            System.out.println(ex);
+        }
+    }
     public void show() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while(true) {
@@ -48,26 +57,25 @@ public class UI {
                 for(Teme t:serv.all())
                     System.out.println(t);
             if(s.equals("3")){
-                try {
-                    System.out.println("ID: ");
-                    String id = br.readLine();
-                    System.out.println("Nume: ");
-                    String nume = br.readLine();
-                    System.out.println("Grupa: ");
-                    String g = br.readLine();
-                    int gr = Integer.parseInt(g);
-                    System.out.println("Email: ");
-                    String em = br.readLine();
-                    System.out.println("Profesor: ");
-                    String prof = br.readLine();
-                    // if(srv.find(id)==null) {
-                    Student stud = new Student(id, nume, gr, em, prof);
-                    srv.add(stud);
-                    //}
-                    //else System.out.println("ID deja existent");
-                }catch(ValidationException ex){
-                    System.out.println(ex);
-                }
+
+                System.out.println("ID: ");
+                String id = br.readLine();
+                System.out.println("Nume: ");
+                String nume = br.readLine();
+                System.out.println("Grupa: ");
+                String g = br.readLine();
+                int gr = Integer.parseInt(g);
+                System.out.println("Email: ");
+                String em = br.readLine();
+                System.out.println("Profesor: ");
+                String prof = br.readLine();
+                // if(srv.find(id)==null) {
+                Student stud = new Student(id, nume, gr, em, prof);
+                srv.add(stud);
+
+                //}
+                //else System.out.println("ID deja existent");
+
             }
             if(s.equals("4")) {
                 try {
@@ -83,8 +91,7 @@ public class UI {
                     String dl = br.readLine();
                     int d = Integer.parseInt(dl);
                     //if(serv.find(nr)==null) {
-                    Teme tema = new Teme(nr, desc, sapt, d);
-                    serv.add(tema);
+                    addAssignment(nr, desc, sapt, d);
                     //}
                     //else System.out.println("ID deja existent");
                 }catch(ValidationException ex){

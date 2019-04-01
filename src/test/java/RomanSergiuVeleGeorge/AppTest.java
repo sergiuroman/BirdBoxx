@@ -1,9 +1,16 @@
 package RomanSergiuVeleGeorge;
 
 import Domain.Student;
+import Repository.NoteRepo;
 import Repository.StudentRepo;
+import Repository.TemeRepo;
+import Service.ServiceNote;
 import Service.ServiceStudent;
+import Service.ServiceTeme;
+import UI.UI;
+import Validator.NotaValidator;
 import Validator.StudentValidator;
+import Validator.TemeValidator;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -121,5 +128,38 @@ public class AppTest {
         }
     }
 
+    @Test
+    public void addValidAssignment() {
+        try {
+            StudentRepo rep = new StudentRepo(new StudentValidator(), "D:\\vvss\\LabAssiAsseProjectV04\\src\\studenti.xml");
+            TemeRepo repo = new TemeRepo(new TemeValidator(), "D:\\vvss\\LabAssiAsseProjectV04\\src\\teme.xml");
+            NoteRepo r = new NoteRepo(new NotaValidator());
+            ServiceStudent srv = new ServiceStudent(rep);
+            ServiceTeme serv = new ServiceTeme(repo);
+            ServiceNote sv = new ServiceNote(r);
+            UI ui = new UI(srv, serv, sv);
+            ui.addAssignment(1, "Do black box testing", 2, 3);
+            assertTrue(true);
+        } catch (Exception e) {
+            assertTrue(false);
+        }
+    }
+
+    @Test
+    public void addInvalidAssignment() {
+        try {
+            StudentRepo rep=new StudentRepo(new StudentValidator(),"D:\\vvss\\LabAssiAsseProjectV04\\src\\studenti.xml");
+            TemeRepo repo=new TemeRepo(new TemeValidator(),"D:\\vvss\\LabAssiAsseProjectV04\\src\\teme.xml");
+            NoteRepo r=new NoteRepo(new NotaValidator());
+            ServiceStudent srv=new ServiceStudent(rep);
+            ServiceTeme serv=new ServiceTeme(repo);
+            ServiceNote sv=new ServiceNote(r);
+            UI ui=new UI(srv,serv,sv);
+            ui.addAssignment(1, "dO wHiTeBoX tEsTiNg", 3, 1);
+            assertTrue(false);
+        } catch (Error e) {
+            assertTrue(true);
+        }
+    }
 
 }
