@@ -28,7 +28,7 @@ public class AppTest {
     }
 
     @Test
-    public static void test_addStudent() {
+    public void test_addStudent() {
         try {
             StudentRepo rep = new StudentRepo(new StudentValidator(), "D:\\vvss\\LabAssiAsseProjectV04\\src\\studenti.xml");
             ServiceStudent srv = new ServiceStudent(rep);
@@ -129,7 +129,7 @@ public class AppTest {
     }
 
     @Test
-    public static void addValidAssignment() {
+    public void addValidAssignment() {
         try {
             StudentRepo rep = new StudentRepo(new StudentValidator(), "D:\\vvss\\LabAssiAsseProjectV04\\src\\studenti.xml");
             TemeRepo repo = new TemeRepo(new TemeValidator(), "D:\\vvss\\LabAssiAsseProjectV04\\src\\teme.xml");

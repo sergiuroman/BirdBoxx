@@ -20,13 +20,47 @@ public class BigBangTest {
     @Test
     public void bigBangTheory() {
         try {
-            AppTest.addValidAssignment();
-            AppTest.test_addStudent();
+            addValidAssignment();
+            test_addStudent();
             addValidGrade();
         } catch (Error e) {
             assertTrue(false);
         }
     }
+
+
+    @Test
+    public void test_addStudent() {
+        try {
+            StudentRepo rep = new StudentRepo(new StudentValidator(), "D:\\vvss\\LabAssiAsseProjectV04\\src\\studenti.xml");
+            ServiceStudent srv = new ServiceStudent(rep);
+
+            Student std = new Student("78", "Sergiu", 936, "sergiu97@yahoo.ro", "Prof X");
+            srv.add(std);
+            assertTrue(true);
+        } catch (Error e) {
+            assertTrue(false);
+        }
+    }
+
+
+    @Test
+    public void addValidAssignment() {
+        try {
+            StudentRepo rep = new StudentRepo(new StudentValidator(), "D:\\vvss\\LabAssiAsseProjectV04\\src\\studenti.xml");
+            TemeRepo repo = new TemeRepo(new TemeValidator(), "D:\\vvss\\LabAssiAsseProjectV04\\src\\teme.xml");
+            NoteRepo r = new NoteRepo(new NotaValidator());
+            ServiceStudent srv = new ServiceStudent(rep);
+            ServiceTeme serv = new ServiceTeme(repo);
+            ServiceNote sv = new ServiceNote(r);
+            UI ui = new UI(srv, serv, sv);
+            ui.addAssignment(1, "Do black box testing", 2, 3);
+            assertTrue(true);
+        } catch (Exception e) {
+            assertTrue(false);
+        }
+    }
+
 
     @Test
     public void addValidGrade() {
