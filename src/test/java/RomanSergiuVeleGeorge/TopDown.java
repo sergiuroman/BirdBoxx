@@ -15,20 +15,28 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class BigBangTest {
+public class TopDown {
 
     @Test
-    public void bigBangTheory() {
-        try {
-            addValidAssignment();
+    public void studentAssignment(){
+        try{
             test_addStudent();
-            addValidGrade();
-        } catch (Error e) {
+            addValidAssignment();
+        }catch (Error e){
             assertTrue(false);
         }
     }
 
-
+    @Test
+    public void studentAssignmentGrade(){
+        try{
+            test_addStudent();
+            addValidAssignment();
+            addValidGrade();
+        }catch (Error e){
+            assertTrue(false);
+        }
+    }
 
 
 
