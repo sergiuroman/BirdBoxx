@@ -143,15 +143,7 @@ public class UI {
                     int data = Integer.parseInt(dt);
                     System.out.println("Feedback: ");
                     String fd=br.readLine();
-                    if (srv.find(id) != null && serv.find(nr) != null) {
-                        Student st = srv.find(id);
-                        Teme tm = serv.find(nr);
-                        Map.Entry<String, Integer> nid = new AbstractMap.SimpleEntry<String, Integer>(id, nr);
-                        Nota nt = new Nota(nid, st, tm, nota, data);
-                        nota = nt.getValoare();
-                        nt = new Nota(nid, st, tm, nota, data);
-                        sv.add(nt,fd);
-                    } else System.out.println("Student sau tema invalida.");
+                    addGrade(id, nr, nota, data, fd);
                 }
                 catch(ValidationException ex){
                     System.out.println(ex);
@@ -160,6 +152,18 @@ public class UI {
             if(s.equals("0"))
                 break;
         }
+    }
+
+    public void addGrade(String id, int nr, float nota, int data, String fd) {
+        if (srv.find(id) != null && serv.find(nr) != null) {
+            Student st = srv.find(id);
+            Teme tm = serv.find(nr);
+            Map.Entry<String, Integer> nid = new AbstractMap.SimpleEntry<String, Integer>(id, nr);
+            Nota nt = new Nota(nid, st, tm, nota, data);
+            nota = nt.getValoare();
+            nt = new Nota(nid, st, tm, nota, data);
+            sv.add(nt,fd);
+        } else System.out.println("Student sau tema invalida.");
     }
 }
 
